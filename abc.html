@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}  
+  </style>
+
+</head>
+<body>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<ul id="myUL">
+  <script>
+    let myUL = [
+  {
+    name: "Harley Bird - Home",
+    artist: "Jordan Schor",
+    img: "music-1",
+    src: "music-1"
+  },
+  {
+    name: "Ikson Anywhere – Ikson",
+    artist: "Audio Library",
+    img: "music-2",
+    src: "music-2"
+  },
+  {
+    name: "Beauz & Jvna - Crazy",
+    artist: "Beauz & Jvna",
+    img: "music-3",
+    src: "music-3"
+  },
+  {
+    name: "Hardwind - Want Me",
+    artist: "Mike Archangelo",
+    img: "music-4",
+    src: "music-4"
+  },
+  {
+    name: "Jim - Sun Goes Down",
+    artist: "Jim Yosef x Roy",
+    img: "music-5",
+    src: "music-5"
+  },
+  {
+    name: "Lost Sky - Vision NCS",
+    artist: "NCS Release",
+    img: "music-6",
+    src: "music-6"
+  },
+  // like this paste it and remember to give comma after ending of this bracket }
+  // {
+  //   name: "Here is the music name",
+  //   artist: "Here is the artist name",
+  //   img: "image name here - remember img must be in .jpg formate and it's inside the images folder of this project folder",
+  //   src: "music name here - remember img must be in .mp3 formate and it's inside the songs folder of this project folder"
+  // }
+];
+  </script>
+</ul>
+
+<script>
+    function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+</body>
+</html>
